@@ -9,7 +9,6 @@ import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/cor
 export class SearchComponent implements OnInit, OnDestroy {
   searchCriteria = '';
   @Output() searchcriteria = new EventEmitter<String>();
-
   constructor() { }
 
   searchThis(event) {
