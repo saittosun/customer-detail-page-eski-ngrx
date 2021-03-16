@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Customer } from 'src/app/models/customer';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { map, take } from 'rxjs/operators';
 import { LeadFacade } from 'src/app/leads/lead-store/lead.facade';
-import { Customer } from 'src/app/models/customer';
 
 @Component({
   selector: 'app-customer-detail',
@@ -11,17 +13,18 @@ import { Customer } from 'src/app/models/customer';
 })
 export class CustomerDetailComponent implements OnInit {
   customer: Customer;
+  customers: Customer[];
 
   constructor(private store: LeadFacade,
               private route: ActivatedRoute,
               private router: Router) { }
 
   ngOnInit(): void {
-    this.store.allLeads$;
-    console.log(this.store.allLeads$);
+    // this.store.allLeads$;
     this.route.params.subscribe((params: Params) => {
       console.log(params.id);
       this.store.allLeads$.pipe(take(1), map(customers => {
+        this.customers = customers;
         console.log(customers);
         return customers.find(customer => customer.id === +params.id)
       }

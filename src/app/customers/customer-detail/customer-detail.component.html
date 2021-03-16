@@ -1,10 +1,33 @@
-<div class="jumbotron container mt-5 offset-2 col-md-6">
-  <h1 class="display-4"><span>Customer Name:</span>{{customer.customerName}}</h1>
-  <p class="lead"><span>Address:</span>{{customer.address.addressline}} </p>
-  <p class="lead"><span>Vat Number:</span>{{customer.vat}}</p>
-  <hr>
-  <h2 class="display-6"><span>Contact Person:</span>{{customer.firstName}} {{customer.lastName}}</h2>
-  <p><span>email:</span>{{customer.email}}</p>
-  <p><span>Phone number:</span>{{customer.phonenumber}}</p>
-  <a class="btn btn-primary" (click)="onEdit()" role="button">Edit</a>
+<div class="container">
+  <div class="jumbotron container mt-5 offset-2 col-md-8">
+    <h1 class="display-4"><span>Customer Name:</span>{{customer.customerName}}</h1>
+    <p class="lead"><span>Address:</span>{{customer.address.addressline}} </p>
+    <p class="lead"><span>Vat Number:</span>{{customer.vat}}</p>
+    <hr>
+    <h2 class="display-6"><span>Contact Person:</span>{{customer.firstName}} {{customer.lastName}}</h2>
+    <p><span>email:</span>{{customer.email}}</p>
+    <p><span>Phone number:</span>{{customer.phonenumber}}</p>
+    <a class="btn btn-primary" (click)="onEdit()" role="button">Edit</a>
+  </div>
+
+  <h2>PROJECTS</h2>
+  <app-projects></app-projects>
+  <!-- <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col-3">Project Name </th>
+        <th scope="col-3">Status</th>
+        <th scope="col-3">Datum</th>
+        <th scope="col-3">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+        <td>{{customer.projectName}}</td>
+        <td>{{customer.status}}</td>
+        <td>{{customer.date}}</td>
+        <td><i class="fa fa-arrow-circle-right"></i></td>
+      </tr>
+    </tbody>
+  </table> -->
 </div>

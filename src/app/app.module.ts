@@ -3,6 +3,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
 
 import { reducers } from './leads/lead-store/lead.selectors';
 import { AppRoutingModule } from './app-routing.module';
@@ -29,6 +32,7 @@ import { ConnectFormDirective } from './shared/connect-form.directive';
 import { SearchDirective } from './shared/search.directive';
 import { SearchPipe } from './shared/search.pipe';
 import { FilterPipe } from './shared/filter.pipe';
+import { ProjectsComponent } from './customers/customer-detail/projects/projects.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +55,7 @@ import { FilterPipe } from './shared/filter.pipe';
     SearchDirective,
     SearchPipe,
     FilterPipe,
+    ProjectsComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +65,9 @@ import { FilterPipe } from './shared/filter.pipe';
     EffectsModule.forRoot([LeadEffect]),
     StoreDevtoolsModule.instrument({logOnly: environment.production}),
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatSortModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [LeadService],
