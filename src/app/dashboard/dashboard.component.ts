@@ -18,7 +18,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.store.loadCustomers();
     this.customers = this.store.allLeads$;
-
   }
 
   searchThis(val: string): void {

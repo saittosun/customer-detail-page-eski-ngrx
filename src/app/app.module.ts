@@ -28,6 +28,7 @@ import { LeadService } from './leads/lead-store/lead.service';
 import { ConnectFormDirective } from './shared/connect-form.directive';
 import { SearchDirective } from './shared/search.directive';
 import { SearchPipe } from './shared/search.pipe';
+import { FilterPipe } from './shared/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { SearchPipe } from './shared/search.pipe';
     ConnectFormDirective,
     SearchDirective,
     SearchPipe,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

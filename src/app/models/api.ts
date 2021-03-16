@@ -10,7 +10,7 @@ export class Api {
 
   private _customers: Customer[] = [
     {
-      id: 1,
+      id: 0,
       customerName: 'Antwerpen',
       projectName: 'Nova',
       status: 'offer',
@@ -29,7 +29,7 @@ export class Api {
       }
     },
     {
-      id: 2,
+      id: 1,
       customerName: 'Renson',
       projectName: 'Nova',
       status: 'offer',
@@ -48,7 +48,7 @@ export class Api {
       }
     },
     {
-      id: 3,
+      id: 2,
       customerName: 'Brussel',
       projectName: 'Nova',
       status: 'offer',
@@ -67,7 +67,7 @@ export class Api {
       }
     },
     {
-      id: 4,
+      id: 3,
       customerName: 'Gent',
       projectName: 'Nova',
       status: 'offer',
@@ -86,7 +86,7 @@ export class Api {
       }
     },
     {
-      id: 5,
+      id: 4,
       customerName: 'Brugge',
       projectName: 'Nova',
       status: 'offer',

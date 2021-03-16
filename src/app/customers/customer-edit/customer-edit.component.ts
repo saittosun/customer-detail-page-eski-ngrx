@@ -20,7 +20,7 @@ export class CustomerEditComponent implements OnInit {
   leadForm: FormGroup;
   customers: Customer[] = [];
   countries: Country [] = new Countries().countries;
-  submitted: boolean = false;
+  edited: boolean = false;
   private destroyed$ = new Subject<boolean>();
 
   constructor(private fb: FormBuilder,
@@ -63,23 +63,25 @@ export class CustomerEditComponent implements OnInit {
   }
 
   private createForm() {
+    const id = this.route.snapshot.params.id;
+    console.log(id);
     this.leadForm = this.fb.group({
-      customername: new FormControl('', Validators.required),
-      addressline1: new FormControl('', Validators.required),
+      customername: new FormControl(this.customers[id].customerName, Validators.required),
+      addressline1: new FormControl(this.customers[id].address.addressline, Validators.required),
       addressline2: new FormControl(''),
-      country: new FormControl('', Validators.required),
-      city: new FormControl('', Validators.required),
-      state: new FormControl('', Validators.required),
-      zip: new FormControl('', Validators.required),
-      vat: new FormControl('', Validators.required),
-      firstname: new FormControl('', Validators.required),
-      lastname: new FormControl('', Validators.required),
-      email: new FormControl('', [
+      country: new FormControl(this.customers[id].address.country, Validators.required),
+      city: new FormControl(this.customers[id].address.city, Validators.required),
+      state: new FormControl(this.customers[id].address.state, Validators.required),
+      zip: new FormControl(this.customers[id].address.zip, Validators.required),
+      vat: new FormControl(this.customers[id].vat, Validators.required),
+      firstname: new FormControl(this.customers[id].firstName, Validators.required),
+      lastname: new FormControl(this.customers[id].lastName, Validators.required),
+      email: new FormControl(this.customers[id].email, [
         Validators.required,
         Validators.email,
         Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')
       ]),
-      phonenumber: new FormControl('', [
+      phonenumber: new FormControl(this.customers[id].phonenumber, [
         Validators.required,
         Validators.minLength(10),
         Validators.pattern("^[0-9]*$"),
@@ -93,18 +95,18 @@ export class CustomerEditComponent implements OnInit {
   }
 
 
-  onSubmit() {
-    console.log('burdayim');
-    this.submitted = true;
+  onEditForm() {
+    console.log('sait');
+    this.edited = true;
     if (this.leadForm.invalid) {
       alert('You must fill the required fields!')
       return;
     };
     const id = this.save(this.leadForm.value);
     console.log(this.leadForm.value);
-    this.router.navigate(['../customer-detail', id], {relativeTo: this.route});
+    this.router.navigate(['../'], {relativeTo: this.route});
     this.leadForm.reset()
-    this.submitted = false;
+    this.edited = false;
   }
 
 
